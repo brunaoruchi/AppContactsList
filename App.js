@@ -8,7 +8,7 @@ export default class App extends Component{
     const names = ['José', 'João', 'Maria', 'Pedro'];
 
     const textElements = names.map(name =>{
-      return <Text>{name}</Text>
+      return <Text key={name}>{name}</Text>
     });
     return textElements;
   }
