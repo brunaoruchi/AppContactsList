@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
-
 import Header from './src/components/Header';
+import axios from 'axios';
 
 export default class App extends Component{
   renderList(){
-    const names = ['José', 'João', 'Maria', 'Pedro', 'Ana'];
-
-    const textElements = names.map(name =>{
-      return <Text key={name}>{name}</Text>
+    axios
+    .get('https://randomuser.me/api/?nat=br&results=5')
+    .then(response => {
+      //destruct = recupera cada usuario
+      const {results} = response.data;
+      const names = results.map(person => person.name.first);
+      console.log(names);
     });
-    return textElements;
   }
 
   render() {
