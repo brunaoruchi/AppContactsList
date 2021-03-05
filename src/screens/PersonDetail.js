@@ -18,6 +18,7 @@ export default class PersonDetail extends React.Component {
           <Line label='Estado:' content={person.location.state} />
           <Line label='Cel:' content={person.cell} />
           <Line label='Nacionalidade:' content={person.nat} />
+          <Line label='Profissão:' content={person.profissao} />
         </View>
       </View>
     )
