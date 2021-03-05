@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ActivityIndicator} from 'react-native';
+import {View, ActivityIndicator, StyleSheet} from 'react-native';
 import PeopleList from '../components/PeopleList';
 import axios from 'axios';
 
@@ -32,15 +32,22 @@ export default class PeoplePage extends React.Component{
   render() {
     // this.props.navigation.navigate(Chave da página, state)  
     return (
-      <View>
+      <View style={styles.container}>
         {
-          this.state.loading ? <ActivityIndicator size="large" color="#CBCBCB" /> : null
-        }
-        <PeopleList 
-          people={this.state.people} 
-          onPressItem ={(parameters) => this.props.navigation.navigate('PersonDetail', parameters)}
+          this.state.loading ? <ActivityIndicator size="large" color="#CBCBCB" />
+          :
+          <PeopleList people={this.state.people} onPressItem ={(parameters) => this.props.navigation.navigate('PersonDetail', parameters)}
         />
+        }
+        
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center'
+  }
+})
