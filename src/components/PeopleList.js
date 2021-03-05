@@ -15,7 +15,7 @@ const PeopleList = props => {
           onPressItem={onPressItem}
         />
       )}
-      keyExtractor={item => item.name.first}
+      keyExtractor={(item, index) => item.name.first+index}
     />
   );
 }
