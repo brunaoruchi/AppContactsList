@@ -5,7 +5,7 @@ import Header from './src/components/Header';
 
 export default class App extends Component{
   renderList(){
-    const names = ['José', 'João', 'Maria', 'Pedro'];
+    const names = ['José', 'João', 'Maria', 'Pedro', 'Ana'];
 
     const textElements = names.map(name =>{
       return <Text key={name}>{name}</Text>
