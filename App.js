@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 import Header from './src/components/Header';
+import PeopleList from './src/components/PeopleList';
 import axios from 'axios';
 
 export default class App extends Component{
@@ -18,7 +19,7 @@ export default class App extends Component{
     axios
     .get('https://randomuser.me/api/?nat=br&results=5')
     .then(response => {
-      //destruct = recupera cada usuario
+      //destruct = recupera cada usuário
       const {results} = response.data;
       this.setState({
         people: results
@@ -26,20 +27,11 @@ export default class App extends Component{
     });
   }
 
-  renderList(){
-    const textElements = this.state.people.map(person => {
-      const {first} = person.name;
-
-      return <Text key={first}>{first}</Text>
-    })
-    return textElements;
-  }
-
   render() {
     return (
       <View>
         <Header label={'Contatos'} />
-        { this.renderList() }
+        <PeopleList people={this.state.people} />
       </View>
     );
   }
