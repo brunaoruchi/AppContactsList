@@ -1,5 +1,7 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
+
+import Line from '../components/Line';
 
 export default class PersonDetail extends React.Component {
   render(){
@@ -11,10 +13,11 @@ export default class PersonDetail extends React.Component {
       <View style={styles.container}>
         <Image source={{uri: picURL}} style={styles.avatar}/>
         <View style={styles.detailContainer}>
-          <View style={styles.line}>
-            <Text style={styles.cell}>E-mail: </Text>
-            <Text style={styles.cell}>{person.email}</Text>
-          </View>
+          <Line label='E-mail:' content={person.email} />
+          <Line label='Cidade:' content={person.location.city} />
+          <Line label='Estado:' content={person.location.state} />
+          <Line label='Cel:' content={person.cell} />
+          <Line label='Nacionalidade:' content={person.nat} />
         </View>
       </View>
     )
@@ -32,17 +35,6 @@ const styles = StyleSheet.create({
   detailContainer: {
     backgroundColor: '#E2F9FF',
     marginTop: 20,
-    elevation: 1,
-    flexDirection: 'row'
-  },
-  line: {
-    flexDirection: 'row',
-    paddingTop: 3,
-    borderWidth: 1,
-    borderColor: "#C5C5C5"
-  },
-  cell:{
-    paddingLeft: 5,
-    fontSize: 16,
+    elevation: 1
   }
 })
