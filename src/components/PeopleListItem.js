@@ -1,12 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import capitalizeFirstLetter from '../util/capitalizeFirstLetter';
 
 const PeopleListItem = props => {
   const {person} = props;
+  const {title, first, last} = person.name;
 
   return(
     <View style={styles.line}>
-      <Text style={styles.lineText}>{person.name.first}</Text>
+      <Text style={styles.lineText}>{capitalizeFirstLetter(title) + " " + capitalizeFirstLetter(first) + " " + capitalizeFirstLetter(last)}</Text>
     </View>
   )
 }
