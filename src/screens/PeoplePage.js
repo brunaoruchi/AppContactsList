@@ -16,7 +16,7 @@ export default class PeoplePage extends React.Component{
   //É chamado apenas uma única vez quando renderizado a tela
   componentDidMount(){
     axios
-    .get('https://randomuser.me/api/?nat=br&results=5')
+    .get('https://randomuser.me/api/?nat=br&results=20')
     .then(response => {
       //destruct = recupera cada usuário
       const {results} = response.data;
