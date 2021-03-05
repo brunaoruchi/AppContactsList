@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
-import Header from '../components/Header';
 import PeopleList from '../components/PeopleList';
 import axios from 'axios';
 
@@ -30,7 +29,6 @@ export default class PeoplePage extends Component{
   render() {
     return (
       <View>
-        <Header label={'Contatos'} />
         <PeopleList people={this.state.people} />
       </View>
     );
