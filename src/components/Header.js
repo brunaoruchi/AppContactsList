@@ -1,17 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-//Stateful
-// class Header extends React.Component{
-//   render(){
-//     return (
-//       <View>
-//         <Text> Aqui é o nosso header </Text>
-//       </View>
-//     );
-//   }
-// }
- 
 //Stateless component
 const Header = (props) => (
   <View style={styles.header}>
