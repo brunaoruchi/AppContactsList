@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View} from 'react-native';
 import PeopleList from '../components/PeopleList';
 import axios from 'axios';
 
-export default class PeoplePage extends Component{
+export default class PeoplePage extends React.Component{
   
   constructor(props) {
     super(props);
@@ -27,9 +27,14 @@ export default class PeoplePage extends Component{
   }
 
   render() {
+    // this.props.navigation.navigate(Chave da página, state)
+    
     return (
       <View>
-        <PeopleList people={this.state.people} />
+        <PeopleList 
+          people={this.state.people} 
+          onPressItem ={() => this.props.navigation.navigate('PersonDetail')}
+        />
       </View>
     );
   }
