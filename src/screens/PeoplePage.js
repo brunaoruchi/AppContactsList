@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ActivityIndicator, StyleSheet} from 'react-native';
+import {View, Text, ActivityIndicator, StyleSheet} from 'react-native';
 import PeopleList from '../components/PeopleList';
 import axios from 'axios';
 
@@ -11,6 +11,7 @@ export default class PeoplePage extends React.Component{
     this.state = {
       people: [],
       loading: false,
+      error: false,
     };
   }
   
@@ -26,6 +27,11 @@ export default class PeoplePage extends React.Component{
         people: results,
         loading: false
       });
+    }).catch(error => {
+      this.setState({
+        error: true,
+        loading: false,
+      })
     });
   }
 
@@ -36,6 +42,7 @@ export default class PeoplePage extends React.Component{
         {
           this.state.loading ? <ActivityIndicator size="large" color="#CBCBCB" />
           :
+          this.state.error ? <Text style={styles.error}>Erro ao carregar lista de contatos... :(</Text> :
           <PeopleList people={this.state.people} onPressItem ={(parameters) => this.props.navigation.navigate('PersonDetail', parameters)}
         />
         }
@@ -48,6 +55,11 @@ export default class PeoplePage extends React.Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+  },
+  error: {
+    fontSize: 18,
+    color:'red',
+    alignSelf:'center'
   }
 })
