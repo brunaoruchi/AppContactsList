@@ -10,4 +10,4 @@ const StackNavigator = createStackNavigator({
 
 const AppContainer = createAppContainer(StackNavigator);
 
-export default PeoplePage;
+export default AppContainer;
